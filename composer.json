@@ -1,0 +1,25 @@
+{
+    "name": "bedd/doctrine-dbal-extensions",
+    "description": "extensions for the doctrine dbal project",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {"name": "Sven Muhle"}
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "doctrine/dbal": "~2.5",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bedd\\Doctrine\\Dbal\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "tests/"
+        ]
+    }
+}
