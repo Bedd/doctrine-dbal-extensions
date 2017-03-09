@@ -136,7 +136,7 @@ class Model
      *
      * @param array $data
      *
-     * @return Ambigous <boolean, string> false on error, true on success or an string with the last insert id if the table has an auto increment column
+     * @return boolean|string false on error, true on success or an string with the last insert id if the table has an auto increment column
      */
     public function create(array $data)
     {
@@ -164,7 +164,7 @@ class Model
      * @param array $order_by
      * @param string $return_type
      *
-     * @return array:
+     * @return array
      */
     public function read(array $columns = [], array $filters = [], array $limit = [], array $order_by = [], $return_type = self::READ_RETURN_COMPLEX)
     {
@@ -279,7 +279,7 @@ class Model
     {
         $return = [];
         //read
-        $data = $this->read($this->getColumnNames(), $filters, $limit, $order_by, false);
+        $data = $this->read($this->getColumnNames(), $filters, $limit, $order_by, self::READ_RETURN_SIMPLE);
         foreach ($data as $row) {
             foreach ($row as $column_name => $value) {
                 $column = $this->getColumn($column_name);
@@ -407,7 +407,7 @@ class Model
     /**
      * List all possible expression types
      *
-     * @return multitype:string
+     * @return string[]
      */
     public function getExpressionTypes()
     {
@@ -416,7 +416,7 @@ class Model
 
     /**
      * List all possible column names
-     * @return multitype:string
+     * @return string[]
      */
     public function getColumnNames()
     {
